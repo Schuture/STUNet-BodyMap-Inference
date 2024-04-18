@@ -3,9 +3,28 @@ Use STUNet fine-tuned on DAP Atlas to inference BodyMap CT samples and get the m
 
 ### 1. Getting Started
 
+---
+
 #### 1.1 Installing STU-Net
 
-Install STU-Net using the [link](https://github.com/uni-medical/STU-Net). 
+Install [STU-Net](https://github.com/uni-medical/STU-Net). 
+
+The model is built based on nnUNet V1. Please ensure that you meet the requirements of nnUNet.
+
+```
+git clone https://github.com/Ziyan-Huang/STU-Net.git
+cd nnUNet-1.7.1
+pip install -e .
+```
+
+If you have installed nnUNetv1 already. You can just copy the following files in this repo to your nnUNet repository.
+
+```
+copy /network_training/* nnunet/training/network_training/
+copy /network_architecture/* nnunet/network_architecture/
+copy run_finetuning.py nnunet/run/
+```
+
 
 #### 1.2 Downloading pre-trained weights
 
