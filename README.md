@@ -9,7 +9,7 @@ Install STU-Net using the [link](https://github.com/uni-medical/STU-Net).
 
 #### 1.2 Downloading pre-trained weights
 
-We use DAP Atlas (144) classes to fine-tune STU-Net pre-trained on TotalSegmentator for 500 epochs. Download the weights (Task102_DAP_Atlas.zip), unzip it to your nnUNet result directory (e.g., .../nnU-Net/nnUNet_results/nnUNet/3d_fullres/).
+We use DAP Atlas (144) classes to fine-tune STU-Net pre-trained on TotalSegmentator for 500 epochs. Download the weights ([Task102_DAP_Atlas.zip](https://drive.google.com/file/d/1-pqOpcMBiv57PxqxFGtKrzx4S9K8lzJm/view?usp=sharing)), unzip it to your nnUNet 3d full resolution result directory (e.g., .../nnU-Net/nnUNet_results/nnUNet/3d_fullres/).
 
 #### 1.3 Preparing data
 
