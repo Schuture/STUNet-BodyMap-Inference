@@ -62,14 +62,14 @@ done
 After running the code, you have the following target directory:
 
 ```
-- Your_Target_Dir/
+- Your_CT_Data_Dir/
   - BDMAP_00000001_0000.nii.gz
   - BDMAP_00000001_0000.nii.gz
   - BDMAP_00000001_0000.nii.gz
   - ...
 ```
 
-**1.3.2** We split the data into slices in order to run the '''all_in_gpu''' mode. First, modify the "input_dir" to your dir for converted data and "output_dir" to a new target dir. And then run 
+**1.3.2** We split the data into slices in order to run the '''all_in_gpu''' mode. First, modify the "input_dir" to \[Your_CT_Data_Dir\] and "output_dir" to \[Your_Sliced_CT_Dir\]. And then run 
 
 ```
 python split_niigz_slices.py
@@ -78,7 +78,7 @@ python split_niigz_slices.py
 After running the code, you have the following directory for sliced CT samples:
 
 ```
-- Your_New_Target_Dir/
+- Your_Sliced_CT_Dir/
   - BDMAP_00000001_slice_1_0000.nii.gz
   - BDMAP_00000001_slice_2_0000.nii.gz
   - BDMAP_00000001_slice_3_0000.nii.gz
@@ -89,10 +89,10 @@ After running the code, you have the following directory for sliced CT samples:
 
 #### 2.1 Inference
 
-To conduct inference, you can use following command:
+To conduct inference on single GPU, you can use following command:
 
 ```
-nnUNet_predict -i [Your_New_Target_Dir] -o [Your_Sliced_Mask_Dir] -t 102 -m 3d_fullres -f 0 -tr STUNetTrainer_large_ft -chk model_ep_500 --step_size 0.9 --disable_tta --mode fast --all_in_gpu True
+nnUNet_predict -i [Your_Sliced_CT_Dir] -o [Your_Sliced_Mask_Dir] -t 102 -m 3d_fullres -f 0 -tr STUNetTrainer_large_ft -chk model_ep_500 --step_size 0.9 --disable_tta --mode fast --all_in_gpu True
 ```
 
 For multi-GPU inference, use the command like:
@@ -104,7 +104,7 @@ CUDA_VISIBLE_DEVICES=1 nnUNet_predict [...] --part_id 1 --num_parts 2
 
 #### 2.2 Merge
 
-We need to merge the sliced masks to the original size of the CT scans. First, modify the "input_dir" to your \[Your_Sliced_Mask_Dir\] and "output_dir" to a new mask dir. And then run 
+We need to merge the sliced masks to the original size of the CT scans. First, modify the "input_dir" to \[Your_Sliced_Mask_Dir\] and "output_dir" to \[Your_Mask_Dir\]. And then run 
 
 ```
 python merge_niigz_slices.py
@@ -113,7 +113,7 @@ python merge_niigz_slices.py
 Then the new mask dir would be like
 
 ```
-- Your_New_Mask_Dir/
+- Your_Mask_Dir/
   - BDMAP_00000001.nii.gz
   - BDMAP_00000002.nii.gz
   - BDMAP_00000003.nii.gz
