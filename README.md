@@ -95,6 +95,13 @@ To conduct inference, you can use following command:
 nnUNet_predict -i [Your_New_Target_Dir] -o [Your_Sliced_Mask_Dir] -t 102 -m 3d_fullres -f 0 -tr STUNetTrainer_large_ft -chk model_ep_500 --step_size 0.9 --disable_tta --mode fast --all_in_gpu True
 ```
 
+For multi-GPU inference, use the command like:
+
+```
+CUDA_VISIBLE_DEVICES=0 nnUNet_predict [...] --part_id 0 --num_parts 2
+CUDA_VISIBLE_DEVICES=1 nnUNet_predict [...] --part_id 1 --num_parts 2
+```
+
 #### 2.2 Merge
 
 We need to merge the sliced masks to the original size of the CT scans. First, modify the "input_dir" to your \[Your_Sliced_Mask_Dir\] and "output_dir" to a new mask dir. And then run 
