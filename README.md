@@ -106,6 +106,8 @@ After running the code, you have the following directory for sliced CT samples:
 
 ### 2. Inference with STUNet
 
+---
+
 #### 2.1 Inference
 
 To conduct inference on single GPU, you can use following command:
