@@ -143,7 +143,7 @@ Then the new mask dir would be like
 
 ### 3. Convert Dataset Format
 
-Finally, we need to convert the prediction on Your_Mask_Dir/ to BodyMap format. Modify the "input_dir" to \[Your_Mask_Dir/\] and "output_dir" to \[Your_BodyMap_Dir\]. Run
+Finally, we need to convert the prediction on Your_Mask_Dir/ to BodyMap format. Modify the "input_dir" to \[Your_Mask_Dir\] and "output_dir" to \[Your_BodyMap_Dir\]. Run
 
 ```
 python make_separate_masks.py
