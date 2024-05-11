@@ -141,11 +141,36 @@ Then the new mask dir would be like
   - ...
 ```
 
+### 3. Convert Dataset Format
 
+Finally, we need to convert the prediction on Your_Mask_Dir/ to BodyMap format. Modify the "input_dir" to \[Your_Mask_Dir/\] and "output_dir" to \[Your_BodyMap_Dir\]. Run
 
+```
+python make_separate_masks.py
+```
 
+to seperate a mask file containing 144 classes to 144 masks with the organ name as the filename.
 
-
+```
+- Your_BodyMap_Dir/
+  - BDMAP_00000001/
+    - segmentations/
+      - abdominal_tissue.nii.gz
+      - adrenal_gland_left.nii.gz
+      - adrenal_gland_right.nii.gz
+      - ...
+    - combined_labels.nii.gz
+    - ct.nii.gz
+  - BDMAP_00000002/
+    - segmentations/
+    - combined_labels.nii.gz
+    - ct.nii.gz
+  - BDMAP_00000003/
+    - segmentations/
+    - combined_labels.nii.gz
+    - ct.nii.gz
+  - ...
+```
 
 
 
