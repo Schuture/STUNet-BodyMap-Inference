@@ -83,8 +83,8 @@ After running the code, you have the following target directory:
 ```
 - Your_CT_Data_Dir/
   - BDMAP_00000001_0000.nii.gz
-  - BDMAP_00000001_0000.nii.gz
-  - BDMAP_00000001_0000.nii.gz
+  - BDMAP_00000002_0000.nii.gz
+  - BDMAP_00000003_0000.nii.gz
   - ...
 ```
 
