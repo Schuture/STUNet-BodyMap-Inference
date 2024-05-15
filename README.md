@@ -172,7 +172,12 @@ to seperate a mask file containing 144 classes to 144 masks with the organ name 
   - ...
 ```
 
+### Appendix. Download Huggingface merged data
 
+```
+cd path_to_target_dir
+huggingface-cli download meddata/STUNet_inference_sliced_mask_merged  --repo-type dataset --local-dir .  --cache-dir ./cache
+```
 
 
 
